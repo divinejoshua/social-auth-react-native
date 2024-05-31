@@ -12,7 +12,6 @@ export default function GoogleLoginComponent() {
 
     const iosClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS;
 
-
     const configureGoogleSignIn = () => {
         GoogleSignin.configure({
           iosClientId: iosClientIdForGoogleSignin,
@@ -50,7 +49,8 @@ export default function GoogleLoginComponent() {
     useEffect(() => {
       configureGoogleSignIn();
       GoogleSignin.signOut();
-    });
+    }, [])
+    
 
     return (
         <ThemedView>
