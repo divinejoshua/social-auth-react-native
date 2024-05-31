@@ -8,9 +8,9 @@ export default function AppleLoginComponent() {
 
 
   // Login with Apple
-  const loginWithApple = async () =>{
+  const loginWithApple = () =>{
     try {
-      const credential = await AppleAuthentication.signInAsync({
+      const credential = AppleAuthentication.signInAsync({
         requestedScopes: [
           AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
           AppleAuthentication.AppleAuthenticationScope.EMAIL,
@@ -19,7 +19,7 @@ export default function AppleLoginComponent() {
       // signed in
       console.log(credential)
     } catch (e : any) {
-    console.log(e)
+      // console.log(e)
       if (e.code === 'ERR_REQUEST_CANCELED') {
         // handle that the user canceled the sign-in flow
       } else {
