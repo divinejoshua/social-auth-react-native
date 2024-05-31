@@ -4,34 +4,10 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import * as AppleAuthentication from 'expo-apple-authentication';
+import AppleLoginComponent from '@/components/AppleLogin';
+import GoogleLoginComponent from '@/components/GoogleLogin';
 
 export default function HomeScreen() {
-
-  const apiKey = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS;
-
-
-  // Login with Apple
-  const loginWithApple = async () =>{
-    try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
-
-      // signed in
-      console.log(credential)
-    } catch (e : any) {
-      if (e.code === 'ERR_REQUEST_CANCELED') {
-        // handle that the user canceled the sign-in flow
-      } else {
-        // handle other errors
-      }
-    }
-  }
-
 
   return (
     <ParallaxScrollView
@@ -46,17 +22,13 @@ export default function HomeScreen() {
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
-      
+
       {/* Login with Apple */}
-      <ThemedView style={styles.container}>
-        <AppleAuthentication.AppleAuthenticationButton
-          buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-          buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-          cornerRadius={5}
-          style={styles.button}
-          onPress={loginWithApple}
-        />
-      </ThemedView>
+      <AppleLoginComponent/>
+
+      {/* Login with Apple */}
+      <GoogleLoginComponent/>
+
     </ParallaxScrollView>
   );
 }
