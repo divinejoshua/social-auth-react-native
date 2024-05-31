@@ -2,7 +2,6 @@ import React from 'react'
 import { ThemedView } from './ThemedView'
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { StyleSheet } from 'react-native';
-import { ThemedText } from './ThemedText';
 
 export default function AppleLoginComponent() {
 
