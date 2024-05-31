@@ -16,35 +16,51 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Set up Login with apple
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+    Follow the expo docs
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+4. Set up Login with google
 
-## Get a fresh project
+   ```bash
+    Follow the expo docs with any external packages
+   ```
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
+5. Set up simulator
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+   NOTE: Login with google does not work in expo. It needs to run on the IOS simulator from Xcode. Here is a step by step procedure
 
-## Learn more
+   Source:
 
-To learn more about developing your project with Expo, look at the following resources:
+   https://react-native-google-signin.github.io/docs/setting-up/expo
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  
 
-## Join the community
+   ```bash
+   Install the google login dependency
+   ```
+    ```bash
+   Update the necessary credentials in app.json (ClientId etc)
+   ```
 
-Join our community of developers creating universal apps.
+   After installing and setting up the code, then create a dev build on expo. Follow this link on how to create a build.
+    https://docs.expo.dev/develop/development-builds/create-a-build/
+   ```bash
+   $ eas build --profile development --platform ios
+   ```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   - This will take a while. This will upload your code to **expo.dev** and build it.
+
+   - Once the build is done, download it, unzip it
+
+   - Open your IOS simulator (You can open this from running IOS simulator in your expo project)
+
+   - Drag the newly downloaded app into the simulator
+
+   - Once it launches your app, you can now be able to login with Google
+
+
+
