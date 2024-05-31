@@ -16,11 +16,10 @@ export default function AppleLoginComponent() {
           AppleAuthentication.AppleAuthenticationScope.EMAIL,
         ],
       });
-
       // signed in
       console.log(credential)
     } catch (e : any) {
-    console.log("error")
+    console.log(e)
       if (e.code === 'ERR_REQUEST_CANCELED') {
         // handle that the user canceled the sign-in flow
       } else {
@@ -36,7 +35,7 @@ export default function AppleLoginComponent() {
         buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
         cornerRadius={5}
         style={styles.button}
-        onPress={()=>loginWithApple()}
+        onPress={loginWithApple}
         />
     </ThemedView>
   )
