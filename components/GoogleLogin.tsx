@@ -13,7 +13,7 @@ export default function GoogleLoginComponent() {
 
     const configureGoogleSignIn = () => {
         GoogleSignin.configure({
-          iosClientId: "117886049071-1mj5nfvlktrd4jo9dbspl1i3jl2eu1m8.apps.googleusercontent.com",
+          iosClientId: iosClientIdForGoogleSignin,
         });
       };
 
