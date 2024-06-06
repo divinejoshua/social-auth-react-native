@@ -29,7 +29,14 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.googleusercontent.apps.117886049071-cpo5bubfi08pc3rd4nu8ud4pmeujcuu0</string>
+          <string>myapp</string>
+          <string>com.didi.socialauth</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.695187430342-n6c42nrkqq80da6hkubbh2gb5l62qt41</string>
         </array>
       </dict>
       <dict>
