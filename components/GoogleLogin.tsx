@@ -12,11 +12,13 @@ export default function GoogleLoginComponent() {
 
     const iosClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS;
     const webClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_WEB;
+    const androidClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_ANDROID;
 
     const configureGoogleSignIn = () => {
         GoogleSignin.configure({
           iosClientId: iosClientIdForGoogleSignin,
           webClientId :webClientIdForGoogleSignin,
+          androidClientId :androidClientIdForGoogleSignin,
         });
       };
 
