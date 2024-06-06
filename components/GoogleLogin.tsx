@@ -18,6 +18,7 @@ export default function GoogleLoginComponent() {
         GoogleSignin.configure({
           iosClientId: iosClientIdForGoogleSignin,
           webClientId :webClientIdForGoogleSignin,
+          //@ts-ignore
           androidClientId :androidClientIdForGoogleSignin,
         });
       };
@@ -30,7 +31,7 @@ export default function GoogleLoginComponent() {
         const userInfo = await GoogleSignin.signIn();
         console.log(userInfo)
       } catch (error) {
-        console.log("Error signing in with Google")
+        console.log(error)
         if (isErrorWithCode(error)) {
           switch (error.code) {
             case statusCodes.SIGN_IN_CANCELLED:
@@ -59,7 +60,7 @@ export default function GoogleLoginComponent() {
     return (
         <ThemedView>
           <TouchableOpacity style={styles.button} onPress={signInWithGoogle}>
-            <ThemedText style={styles.buttonText}>Login with Google</ThemedText>
+            <ThemedText style={styles.buttonText}>Login with Googlee</ThemedText>
           </TouchableOpacity>
         </ThemedView>
     )
