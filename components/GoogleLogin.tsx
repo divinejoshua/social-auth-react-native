@@ -26,7 +26,7 @@ export default function GoogleLoginComponent() {
   const [loading, setLoading] = React.useState(false);
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS,
-    androidClientId: process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_ANDROID,
+    androidClientId: "117886049071-co7ruo6ut0p9f8b49u26m987tshhloo8.apps.googleusercontent.com",
   });
 
   // const getLocalUser = async () => {
