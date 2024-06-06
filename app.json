@@ -16,22 +16,15 @@
       "supportsTablet": true,
       "usesAppleSignIn": true,
       "bundleIdentifier": "com.didi.socialauth",
-      "infoPlist": {
-        "CFBundleURLTypes": [
-          {
-            "CFBundleURLSchemes": [
-              "com.googleusercontent.apps.117886049071-cpo5bubfi08pc3rd4nu8ud4pmeujcuu0"
-            ]
-          }
-        ]
-      }
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.didi.socialauth"
+      "package": "com.didi.socialauth",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
