@@ -48,6 +48,8 @@ export default function GoogleLoginComponent() {
       const { id_token } = response.params;
       const credential = GoogleAuthProvider.credential(id_token);
       signInWithCredential(auth, credential);
+      console.log(credential)
+      console.log(auth)
     }
   }, [response]);
 
