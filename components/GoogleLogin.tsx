@@ -11,15 +11,12 @@ import { ThemedText } from './ThemedText';
 export default function GoogleLoginComponent() {
 
     const iosClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS;
-    const webClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_WEB;
+    const webClientIdForGoogleSignin = "695187430342-8apfprq2tr4t6stj8ketn2eje4tbmap2.apps.googleusercontent.com";
     const androidClientIdForGoogleSignin = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_ANDROID;
 
     const configureGoogleSignIn = () => {
         GoogleSignin.configure({
-          iosClientId: iosClientIdForGoogleSignin,
-          webClientId :webClientIdForGoogleSignin,
-          //@ts-ignore
-          androidClientId :androidClientIdForGoogleSignin,
+          webClientId : "695187430342-8apfprq2tr4t6stj8ketn2eje4tbmap2.apps.googleusercontent.com",
         });
       };
 
@@ -52,6 +49,7 @@ export default function GoogleLoginComponent() {
       }
     }
     useEffect(() => {
+      GoogleSignin.revokeAccess();
       configureGoogleSignIn();
       GoogleSignin.signOut();
     }, [])
@@ -60,7 +58,7 @@ export default function GoogleLoginComponent() {
     return (
         <ThemedView>
           <TouchableOpacity style={styles.button} onPress={signInWithGoogle}>
-            <ThemedText style={styles.buttonText}>Login with Googlee</ThemedText>
+            <ThemedText style={styles.buttonText}>Login with Google (IOS)</ThemedText>
           </TouchableOpacity>
         </ThemedView>
     )
