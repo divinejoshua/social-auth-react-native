@@ -15,7 +15,10 @@
     "ios": {
       "supportsTablet": true,
       "usesAppleSignIn": true,
-      "bundleIdentifier": "com.didi.socialauth"
+      "bundleIdentifier": "com.didi.socialauth",
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": ["socialauth"]
+      }
     },
     "android": {
       "adaptiveIcon": {

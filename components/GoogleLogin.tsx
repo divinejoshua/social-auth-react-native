@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import * as WebBrowser from "expo-web-browser";
 import * as Linking from 'expo-linking';
@@ -17,21 +17,38 @@ export default function GoogleLoginComponent() {
 
   const [email, setEmail] = useState<string>("");
 
-  const openGoogleLoginWebPage = async () => {
+  const loginWithGoogle = async () => {
     let signInUrl =`${GOOGLE_SIGNIN_URL}?redirectUrl=${REDIRECT_URL}`
-    await WebBrowser.openBrowserAsync(signInUrl);
+    await openGoogleLoginWebPage(signInUrl)
+    // await WebBrowser.openBrowserAsync(signInUrl);
   };
 
-    // Get user google account details
-    const getUserGoogleAccountCredentials = (parsedUrl : any) =>{
-      let credentials : any= {}
-      credentials.email= parsedUrl.query.email;
-      credentials.fullName = parsedUrl.query.fullname;
-      WebBrowser.dismissBrowser()
-      router.canGoBack() ? router.back() : null
-      console.log(credentials)
-      setEmail(credentials.email)
+  // Open the web browser based on OS
+  const openGoogleLoginWebPage = async(signInUrl : string) =>{
+    switch (Platform.OS) {
+      case 'ios':
+          Linking.openURL(signInUrl);
+        break;
+      case 'android':
+          await WebBrowser.openBrowserAsync(signInUrl);
+          break;
+      default:
+          // Code to execute for other platforms, e.g., web, windows, etc.
+          await WebBrowser.openBrowserAsync(signInUrl);
     }
+
+  }
+
+  // Get user google account details
+  const getUserGoogleAccountCredentials = (parsedUrl : any) =>{
+    let credentials : any= {}
+    credentials.email= parsedUrl.query.email;
+    credentials.fullName = parsedUrl.query.fullname;
+    WebBrowser.dismissBrowser()
+    router.canGoBack() ? router.back() : null
+    console.log(credentials)
+    setEmail(credentials.email)
+  }
 
   useEffect(() => {
 
@@ -49,7 +66,7 @@ export default function GoogleLoginComponent() {
 
   return (
     <ThemedView>
-      <TouchableOpacity style={styles.button} onPress={() =>openGoogleLoginWebPage()}>
+      <TouchableOpacity style={styles.button} onPress={() =>loginWithGoogle()}>
         <ThemedText style={styles.buttonText}>Login with Google</ThemedText>
       </TouchableOpacity>
       { email &&  <ThemedText>Logged in as {email}</ThemedText>}
