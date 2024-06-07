@@ -33,8 +33,8 @@ export default function GoogleLoginComponent() {
           await WebBrowser.openBrowserAsync(signInUrl);
           break;
       default:
-          // Code to execute for other platforms, e.g., web, windows, etc.
           await WebBrowser.openBrowserAsync(signInUrl);
+
     }
 
   }
