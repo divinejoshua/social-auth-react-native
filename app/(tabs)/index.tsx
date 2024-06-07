@@ -24,7 +24,10 @@ export default function HomeScreen() {
       </ThemedView>
 
       {/* Login with Apple */}
-      <AppleLoginComponent/>
+      {
+        Platform.OS === 'ios' &&
+          <AppleLoginComponent/>
+      }
 
       {/* Login with Apple */}
       <GoogleLoginComponent/>

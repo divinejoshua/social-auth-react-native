@@ -15,16 +15,14 @@
     "ios": {
       "supportsTablet": true,
       "usesAppleSignIn": true,
-      "bundleIdentifier": "com.didi.socialauth",
-      "googleServicesFile": "./GoogleService-Info.plist"
+      "bundleIdentifier": "com.didi.socialauth"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.didi.socialauth",
-      "googleServicesFile": "./google-services.json"
+      "package": "com.didi.socialauth"
     },
     "web": {
       "bundler": "metro",
