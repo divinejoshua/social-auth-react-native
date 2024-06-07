@@ -16,8 +16,17 @@
       "supportsTablet": true,
       "usesAppleSignIn": true,
       "bundleIdentifier": "com.didi.socialauth",
+      "entitlements": {
+        "com.apple.developer.applesignin": ["Default"]
+      },
       "infoPlist": {
-        "LSApplicationQueriesSchemes": ["socialauth"]
+        "LSApplicationQueriesSchemes": ["socialauth"],
+        "NSFaceIDUsageDescription": "This app uses Face ID to sign in",
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["com.didi.socialauth"]
+          }
+        ]
       }
     },
     "android": {
